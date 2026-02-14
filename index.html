@@ -3,113 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercusuar Consultant</title>
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>The Mercusuar Consultant | Konsultan Pengembangan Perguruan Tinggi</title>
+    <meta name="description" content="Mercusuar Consultant adalah perusahaan konsultan yang berfokus pada pengembangan strategis perguruan tinggi di Indonesia. Melayani pendampingan kelembagaan, prodi baru, hingga akreditasi.">
+    
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <style>
+        /* ==========================================
+           COLOR PALETTE & RESET [cite: 22, 24, 25]
+           Primary: #154880 (Dark Blue)
+           Accent: #7C95A1 (Asumsi dari #7C95)
+           White: #FFFFFF
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #154880; /* Warna utama background [cite: 24] */
+            color: #ffffff; /* [cite: 25] */
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(21, 72, 128, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-brand img {
+            height: 40px; /* Sesuaikan dengan ukuran title.png milikmu  */
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #7C95A1; /* Aksen warna  */
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* Supaya gambar nempel di bawah [cite: 3] */
+            padding: 50px 5% 0 5%;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+            align-self: flex-start; /* Teks tetap di kiri atas [cite: 3] */
+            padding-top: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #ffffff; /* [cite: 9] */
+        }
+
+        .hero-text h1 strong {
+            font-weight: 700;
+            color: #f1c40f; /* Warna gold/kuning seperti di desain PDF */
+            display: block; /* [cite: 10] */
+        }
+
+        .hero-text p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #e0e0e0;
+            text-align: justify;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end; /* Gambar di kanan [cite: 2, 3] */
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 70vh; /* Agar natural dan tidak terlalu besar [cite: 3] */
+            object-fit: contain;
+            /* Pastikan file Mercusuar.png backgroundnya transparan  */
+        }
+
+        /* --- LAYANAN SECTION --- */
+        .services {
+            background-color: #ffffff; /* Background putih untuk pemisah visual [cite: 25] */
+            color: #154880; /* Teks biru gelap [cite: 24] */
+            padding: 80px 5%;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: #f8f9fa;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid #154880; /* [cite: 24] */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-top-color: #7C95A1;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #154880; /* [cite: 24] */
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .hero-text {
+                align-self: center;
+                padding-top: 0;
+            }
+            .hero-text p {
+                text-align: left;
+            }
+            .hero-image {
+                margin-top: 30px;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header id="hidehead">
-        <a href="#" class="logo"><img src="images/title.png" height="78px" alt="Logo"></a>
-        <div class="menuToggle" onclick="toggleMenu();"></div>
-        <ul class="navigation">
-            <li><a href="#banner" onclick="toggleMenu();">Home</a></li>
-            <li><a href="#jenis" onclick="toggleMenu();">Layanan</a></li>
-        </ul>
+
+    <header>
+        <a href="#home" class="nav-brand">
+            <img src="title.png" alt="The Mercusuar Consultant Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li> <li><a href="#layanan">Layanan</a></li> </ul>
     </header>
 
-    <!-- Landing Page Section -->
-    <section class="banner" id="banner">
-        <div class="banner-text">
-            <h6 class="white"></h6>
-            <h2 class="yellow" data-aos="fade-up" data-aos-duration="5000" data-aos-delay="500">
-                Welcome to <br> The Mercusuar Consultant
-            </h2>
-            <p class="banner-text white" data-aos="fade-up" data-aos-duration="5000" data-aos-delay="500">
-                Mercusuar Consultant adalah perusahaan konsultan yang berfokus pada pengembangan strategis perguruan tinggi di Indonesia. Kami menyediakan layanan pendampingan menyeluruh dalam penguatan institusi pendidikan tinggi, mulai dari pengembangan kelembagaan, pendirian dan perizinan program studi baru, hingga peningkatan mutu melalui proses akreditasi dan audit mutu eksternal. Selain itu, kami mendampingi pengembangan kapasitas sumber daya manusia dosen dan tenaga kependidikan, serta mendukung strategi branding, promosi, dan pemasaran kampus secara profesional. Dengan pendekatan berbasis data, regulasi, dan pengalaman lapangan, The Mercusuar Consultant hadir sebagai mitra terpercaya dalam membangun daya saing institusi pendidikan tinggi secara berkelanjutan.
-            </p>
-            <div class="links" data-aos="fade-up" data-aos-duration="5000" data-aos-delay="800">
-                <img src="images/Mercusuar .png" class="tombol" alt="Mercusuar">
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-text">
+                <h1>Welcome to <br><strong>The Mercusuar Consultant</strong></h1> <p>Mercusuar Consultant adalah perusahaan konsultan yang berfokus pada pengembangan strategis perguruan tinggi di Indonesia. Kami menyediakan layanan pendampingan menyeluruh mulai dari pengembangan kelembagaan, pendirian dan perizinan program studi baru, hingga peningkatan mutu melalui proses akreditasi dan audit mutu eksternal. [cite: 11, 12]</p>
+                <p>Selain itu, kami mendampingi pengembangan sumber daya manusia dosen dan tenaga kependidikan, serta mendukung strategi branding, promosi, dan pemasaran kampus secara profesional. [cite: 13]</p>
+                <p>Dengan pendekatan berbasis data, regulasi, dan pengalaman, The Mercusuar Consultant hadir sebagai mitra terpercaya dalam membangun daya saing institusi pendidikan tinggi secara berkelanjutan. [cite: 14]</p>
             </div>
-        </div>
-    </section>
+            
+            <div class="hero-image">
+                <img src="Mercusuar.png" alt="Ilustrasi Mercusuar Consultant">
+            </div>
+        </section>
 
-    <!-- Divisi Section -->
-    <section class="jenis" id="jenis">
-        <div class="title" data-aos="fade-up" data-aos-duration="5000" data-aos-delay="200">
-            <img src="images/Layanan.png" width="100%" class="ttl" alt="Layanan">
-        </div>
-        <div class="kartu" data-aos="fade-up" data-aos-duration="5000" data-aos-delay="500">
-            <div class="kiri">
-                <img src="images/Satu.png" width="100%" alt="Satu">
+        <section id="layanan" class="services">
+            <h2>Layanan Kami</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Konsultasi Pengembangan Perguruan Tinggi</h3> </div>
+                <div class="card">
+                    <h3>Pendampingan Peningkatan Status Kelembagaan</h3> </div>
+                <div class="card">
+                    <h3>Pendampingan Izin Program Studi Baru</h3> </div>
+                <div class="card">
+                    <h3>Pendampingan Akreditasi dan Audit Mutu Eksternal</h3> <p style="font-size: 0.9rem; color: #555;">Simulasi asesmen lapangan dan audit mutu institusi.</p> </div>
+                <div class="card">
+                    <h3>Pendampingan Branding dan Identitas Institusi</h3> <p style="font-size: 0.9rem; color: #555;">Pendampingan promosi dan marketing kampus.</p> </div>
             </div>
-            <div class="kanan">
-                <img src="images/Dua.png" width="100%" alt="Dua">
-            </div>
-        </div>
-        <div class="kartu" data-aos="fade-up" data-aos-delay="600">
-            <div class="kiri">
-                <img src="images/Tiga.png" width="100%" alt="Tiga">
-            </div>
-            <div class="kanan">
-                <img src="images/Empat.png" width="100%" alt="Empat">
-            </div>
-        </div>
-        <div class="kartu" data-aos="fade-up" data-aos-delay="600">
-            <div class="kiri">
-                <img src="images/Lima.png" width="100%" alt="Lima">
-            </div>
-            <div class="kanan">
-                <img src="images/Enam.png" width="100%" alt="Enam">
-            </div>
-        </div>
-        <div class="kartu" data-aos="fade-up" data-aos-delay="700">
-            <div class="kiri1">
-                <img src="images/Tujuh.png" width="100%" alt="Tujuh">
-            </div>
-        </div>
-        <br>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-left">
-            <div class="credit-cards">
-                <img src="images/title.png" alt="Title">
-            </div>
-        </div>
-        <div class="footer-center">
-            <div>
-                <i class="fa fa-map-marker"></i>
-                <p><span>The Jayan Building lt.1 - 56</span>Jl. Affandi No.4, Gejayan, Kec. Depok, Kabupaten Sleman, DIY 55281</p>
-            </div>
-            <div>
-                <i class="fa fa-phone"></i>
-                <p>+6281520380736<br>+6289673780003</p>
-            </div>
-            <div>
-                <i class="fa fa-envelope"></i>
-                <p><a href="mailto:themercusuarconsultant@gmail.com">themercusuarconsultant@gmail.com</a></p>
-            </div>
-        </div>
-        <div class="footer-right">
-            <div class="footer-media">
-                <a href="#"><i class="fa fa-youtube"></i></a>
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-            <p class="footer-copyright">Copyright © 2025. Mercusuar Consultant</p>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="main.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        // JS dibiarkan kosong karena smooth scrolling sudah di-handle oleh CSS (scroll-behavior: smooth).
+        // Ini menjaga file tetap clean dan tidak over-engineered.
     </script>
+
 </body>
 </html>
